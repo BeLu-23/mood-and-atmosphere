@@ -30,6 +30,7 @@ const NavBar = ({windowWidth}: NavBarProps) => {
             sx={{flexGrow: 1}}
             role='navigation'
             aria-label='NavBar box'
+            width='100%'
         >
             <AppBar 
                 position="fixed" 
@@ -80,7 +81,7 @@ const NavBar = ({windowWidth}: NavBarProps) => {
                                 {"ÜBER UNS"}
                             </MenuItem>
                             <MenuItem onClick={() => handleClose("FOTOS")} aria-label="Fotos">
-                                {"FOTOS"}
+                                {"GALLERIE"}
                             </MenuItem>
                             <Divider />
                             <InstaButton />
@@ -96,14 +97,14 @@ const NavBar = ({windowWidth}: NavBarProps) => {
                                 Mood & Atmosphere
                             </Typography>
                             <Box sx={{display: 'flex'}}>
-                                <Box onClick={() => handleClose("HOME")}>
+                                <Box onClick={() => handleClose("HOME")} sx={{cursor: "pointer",}}>
                                     <Typography className="large-menu-item">HOME</Typography>
                                 </Box>
-                                <Box onClick={() => handleClose("ÜBER UNS")}>
+                                <Box onClick={() => handleClose("ÜBER UNS")} sx={{cursor: "pointer",}}>
                                     <Typography className="large-menu-item">ÜBER UNS</Typography>
                                 </Box>
-                                <Box onClick={() => handleClose("FOTOS")}>
-                                    <Typography className="large-menu-item">FOTOS</Typography>
+                                <Box onClick={() => handleClose("FOTOS")} sx={{cursor: "pointer",}}>
+                                    <Typography className="large-menu-item">GALLERIE</Typography>
                                 </Box>
                             </Box>
                             {/* <IconButton

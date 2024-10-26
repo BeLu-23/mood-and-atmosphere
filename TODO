@@ -1,0 +1,19 @@
+TODOs
+
+- favicon icon, sollte 16x16 oder 32x32 pixel sein (erstelle selber)
+- barrierefreiheit einbauen
+- passe Imoressum  und Datenschutz erklärung mit boras richtigen daten an
+- bring es auf github pages
+- deploye seite zu all-inkl und checke ob dort cookies genommen werden. Falls ja sollte ein banner gebaut werden
+
+DONE - navigation einabuen
+DONE   dann impressums seite
+DONE  dann datenschutz seite
+
+DONE - baue komponente um bilder in verschiedenen sections darzustellen 
+DONE - baue dialog um zwischen den bildern her zu wechseln in detailansucht
+
+DONE - passe alle Farben an in Thema weis/grün (Schrift, trennstriche, icons, etc)
+DONE   finde farbe in bildbearbeitungsprogramm
+
+DONE - Ändere "FOTOS" in GALLERY

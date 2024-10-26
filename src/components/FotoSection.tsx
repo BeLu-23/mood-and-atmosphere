@@ -1,15 +1,23 @@
-import { Typography } from "@mui/material";
+import ImageGallery from "./ImageGallery";
+import { gallery1, gallery2 } from "../util/inputs";
 
-const FotoSection = () => {
+interface FotoSectionProps {
+    windowWidth: number;
+}
+
+const FotoSection = ({windowWidth}: FotoSectionProps) => {
+
+    const isSmallWindow = windowWidth <= 1500;
+    windowWidth
+
     return ( 
-        <div id="FOTOS" style={{width: '100vw', borderBottom: '2px solid black', paddingBottom: '16px'
+        <div id="FOTOS" style={{width: '100vw', borderTop: '2px solid black',
+            // , paddingBottom: '2px'
+            paddingLeft: isSmallWindow ? '0%' : '20%',
+            paddingRight: isSmallWindow ? '0%' : '20%',
         }}>
-            <Typography sx={{paddingTop: '80px', paddingBottom: '16px'}} variant="h4">
-                Fotos
-            </Typography>
-            <Typography>
-                Hier kommen Fotos. Hier kommen Fotos. Hier kommen Fotos. Hier kommen Fotos. Hier kommen Fotos. Hier kommen Fotos. Hier kommen Fotos. Hier kommen Fotos. Hier kommen Fotos. Hier kommen Fotos. Hier kommen Fotos. Hier kommen Fotos. Hier kommen Fotos. Hier kommen Fotos. Hier kommen Fotos. Hier kommen Fotos. Hier kommen Fotos. Hier kommen Fotos. Hier kommen Fotos. Hier kommen Fotos. Hier kommen Fotos. Hier kommen Fotos. Hier kommen Fotos. Hier kommen Fotos. Hier kommen Fotos. Hier kommen Fotos. Hier kommen Fotos. Hier kommen Fotos. Hier kommen Fotos. Hier kommen Fotos. Hier kommen Fotos. Hier kommen Fotos. Hier kommen Fotos. Hier kommen Fotos. Hier kommen Fotos. Hier kommen Fotos. Hier kommen Fotos. Hier kommen Fotos. Hier kommen Fotos. Hier kommen Fotos. Hier kommen Fotos. Hier kommen Fotos. Hier kommen Fotos. Hier kommen Fotos. Hier kommen Fotos. Hier kommen Fotos. Hier kommen Fotos. Hier kommen Fotos. Hier kommen Fotos. Hier kommen Fotos. Hier kommen Fotos. Hier kommen Fotos. Hier kommen Fotos. Hier kommen Fotos. Hier kommen Fotos.
-            </Typography>
+            <ImageGallery inputs={gallery1} />
+            <ImageGallery inputs={gallery2} />
         </div>
      );
 }

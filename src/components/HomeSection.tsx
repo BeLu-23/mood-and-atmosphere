@@ -89,7 +89,7 @@ const HomeSection = () => {
             height: 'auto', // Automatische Höhe basierend auf der Breite
             minHeight: 'calc(100vh - 64px)', // Mindesthöhe des Containers abzüglich 64px für den Platz oberhalb des Bildes
             marginTop: '64px', // Platz oberhalb des Hintergrundbilds für die NavBar
-            borderBottom: '2px solid black' // Untere Begrenzung mit schwarzer Linie
+            // borderBottom: '2px solid black' // Untere Begrenzung mit schwarzer Linie
         }} />
 
      );

@@ -1,4 +1,5 @@
 import { Typography } from "@mui/material";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
     return ( 
@@ -6,17 +7,19 @@ const Footer = () => {
             display: 'flex',
             justifyContent: 'center',
             flexDirection: 'column',
-            borderBottom: '2px solid black'
+            borderBottom: '2px solid black',
+            borderTop: '2px solid black',
+            paddingTop: '4px'
         }}>
             <div style={{ 
             display: 'flex',
             justifyContent: 'center',
             gap: '16px',
         }}>
-            <Typography >
+            <Typography component={Link} to="/impressum" style={{ textDecoration: 'underline', color: 'inherit' }}>
                 Impressum
             </Typography>
-            <Typography>
+            <Typography component={Link} to="/datenschutz" style={{ textDecoration: 'underline', color: 'inherit' }}>
                 Datenschutz
             </Typography>
             </div>
