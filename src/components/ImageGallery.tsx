@@ -1,5 +1,5 @@
-import { Box, Dialog, DialogContent, Grid, IconButton, Typography } from "@mui/material";
-import { useState } from "react";
+import { Box, Dialog, DialogContent, Grid, IconButton, Skeleton, Typography } from "@mui/material";
+import { useEffect, useState } from "react";
 import { BiArrowBack } from "react-icons/bi";
 import { IoArrowForward } from "react-icons/io5";
 import { GalleryInputs } from "../util/inputs";
@@ -13,6 +13,7 @@ const ImageGallery = ({inputs} : ImageGalleryProps) => {
 
 const [selectedImageIndex, setSelectedImageIndex] = useState<number | null>(null);
 const images = inputs.images;
+const isRental = inputs.title == 'Rental Games';
 
 const handleImageClick = (index: number) => {
     setSelectedImageIndex(index);
@@ -32,42 +33,97 @@ const showPreviousImage = () => {
     );
 };
 
+useEffect(() => {
+    const handleKeyDown = (event: KeyboardEvent) => {
+        if (event.key === "ArrowRight") {
+            showNextImage();
+        } else if (event.key === "ArrowLeft") {
+            showPreviousImage();
+        }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => {
+        window.removeEventListener('keydown', handleKeyDown);
+    }
+}, [])
+
 return (
-    <Box sx={{
-        paddingX: "0",
-        paddingBottom: '6px',
-    }}>
-        <Typography sx={{paddingTop: '80px', paddingBottom: '16px'}} variant="h4">
-            {inputs.title}
+    <Box 
+        id={inputs.title}
+        sx={{
+            paddingBottom: '6px',
+        }}
+    >
+        <Typography sx={{paddingTop: '80px', paddingBottom: '16px', pl: '8px', pr: '8px'}} variant="h4">
+            {inputs.title.toUpperCase()}
         </Typography >
         <Typography sx={{paddingBottom: '16px', paddingLeft: '10px', paddingRight: '10px'}}>
             {inputs.description}    
         </Typography>
+        {isRental && (
+            <>
+                <Typography>Jenga</Typography>
+                <Typography>Maße Bodenplatte ca.: 40cm x 40cm</Typography>
+                <Typography>Maße Klötze ca.: 24cm x 6cm x 8cm</Typography>
+                <br />
+                <Typography>4 Gewinnt</Typography>
+                <Typography>Maße ca.: 190cm x 160cm x 50cm</Typography>
+                <br />
+                <Typography>Kugellabyrinth</Typography>
+                <Typography>Maße ca.: 100cm x 198cm x 80cm</Typography>
+                <br />
+            </>
+        )}
         <Grid 
-            container 
-            // spacing={2}
+            container
+            rowSpacing={1}
+            columnSpacing={1}
         >
             {images.map((image, index) => (
-            <Grid 
-                item 
-                xs={12} 
-                sm={6} 
-                key={index}
-            >
-                <Box
-                component="img"
-                src={image}
-                alt={`Image ${index + 1}`}
-                width="100%"
-                height={'200px'}
-                sx={{
-                    objectFit: "cover", // Crop the image to fit the box
-                    cursor: "pointer",
-                    // borderRadius: "8px",
-                }}
-                onClick={() => handleImageClick(index)}
-                />
-            </Grid>
+                <Grid 
+                    item 
+                    xs={12} 
+                    sm={6} 
+                    key={index}
+                >
+                    <Box
+                        sx={{
+                            position: 'relative',
+                            width: "100%",
+                            paddingBottom: '100%',
+                        }}
+                    >
+                        <Skeleton
+                            variant="rectangular"
+                            width="100%"
+                            height="100%"
+                            sx={{
+                                position: 'absolute',
+                                top: 0,
+                                left: 0,
+                                zIndex: 1,
+                            }}
+                            animation="wave"
+                        />
+                        <Box
+                            component="img"
+                            src={image}
+                            alt={`Image ${index + 1}`}
+                            loading="lazy"
+                            onLoad={(e) => ((e.target as HTMLImageElement).style.zIndex = "2")} // Skeleton überlagern, sobald das Bild geladen ist
+                            sx={{
+                                position: 'absolute',
+                                top: 0,
+                                left: 0,
+                                width: "100%",
+                                height: "100%",
+                                objectFit: "cover",
+                                cursor: "pointer",
+                            }}
+                            onClick={() => handleImageClick(index)}
+                        />
+                    </Box>
+                </Grid>
             ))}
         </Grid>
 
@@ -116,7 +172,7 @@ return (
                         padding: "8px",
                     }}
                 >
-                    <BiArrowBack color="red" />
+                    <BiArrowBack />
                 </IconButton>
 
                 {selectedImageIndex !== null && (
@@ -128,6 +184,7 @@ return (
                             width: "100vw",
                             height: "auto",
                             maxHeight: "100vh",
+                            maxWidth: "100vw",
                             objectFit: "contain",
                         }}
                     />
@@ -156,7 +213,7 @@ return (
                     onClick={handleClose}
                     sx={{
                     position: "absolute",
-                    top: 8,
+                    top: 40,
                     right: 8,
                     backgroundColor: "white",
                     color: "#676634",

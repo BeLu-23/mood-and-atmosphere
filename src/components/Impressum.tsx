@@ -1,11 +1,22 @@
 import { Box, Typography } from "@mui/material";
+import { useRef, useEffect } from "react";
+import { impressumInputs } from "../util/inputs";
 
 const Impressum = () => {
+    const containerRef = useRef<HTMLDivElement | null>(null);
+
+    useEffect(() => {
+        if (containerRef.current) {
+            containerRef.current.focus();
+            containerRef.current.scrollIntoView({ behavior: 'smooth' });
+        }
+    }, []);
     return ( 
         <Box 
             component="section" 
             aria-labelledby="impressum-title" 
             sx={{ padding: '16px', maxWidth: '600px', margin: 'auto' }}
+            ref={containerRef}
         >
             <Typography 
                 id="impressum-title" 
@@ -13,10 +24,10 @@ const Impressum = () => {
                 component="h1" 
                 gutterBottom
                 sx={{
-                    borderBottom: '2px solid black',
+                    borderBottom: '2px solid #676634',
                 }}
             >
-                Impressum
+                {impressumInputs.title}
             </Typography>
             
             <Typography 
@@ -25,13 +36,13 @@ const Impressum = () => {
                 gutterBottom 
                 aria-label="Angaben gemäß Paragraph 5 des Telemediengesetzes"
             >
-                Angaben gemäß § 5 TMG
+                {impressumInputs.header1}
             </Typography>
             <Typography component="address" sx={{ fontStyle: 'normal' }}>
-                Mood and Atmosphere<br />
-                Inhaber: Max Mustermann<br />
-                Musterstraße 1<br />
-                12345 Musterstadt
+                {impressumInputs.name}<br />
+                {impressumInputs.preOwner}{impressumInputs.owner}<br />
+                {impressumInputs.street}<br />
+                {impressumInputs.town}
             </Typography>
 
             <Typography 
@@ -41,11 +52,11 @@ const Impressum = () => {
                 aria-label="Kontaktinformationen"
                 sx={{ marginTop: '16px' }}
             >
-                Kontakt
+                {impressumInputs.header2}
             </Typography>
             <Typography component="address" sx={{ fontStyle: 'normal' }}>
-                Telefon: <a href="tel:+491234567890">01234 567890</a><br />
-                E-Mail: <a href="mailto:info@moodandatmosphere.de">info@moodandatmosphere.de</a>
+                {impressumInputs.prePhone}<a href={`tel:${impressumInputs.phone}`}>{impressumInputs.phone}</a><br />
+                {impressumInputs.preMail}<a href={`mailto:${impressumInputs.mail}`}>{impressumInputs.mail}</a>
             </Typography>
 
             <Typography 
@@ -55,10 +66,11 @@ const Impressum = () => {
                 aria-label="Steuernummer"
                 sx={{ marginTop: '16px' }}
             >
-                Steuernummer
+                {impressumInputs.header3}
             </Typography>
             <Typography>
-                Steuernummer: 123/4567/8901
+                {impressumInputs.taxnr}<br/>
+                {impressumInputs.umsatzID}
             </Typography>
 
             <Typography 
@@ -68,12 +80,12 @@ const Impressum = () => {
                 aria-label="Verantwortlich für den Inhalt nach Paragraph 55 Absatz 2 des Rundfunkstaatsvertrags"
                 sx={{ marginTop: '16px' }}
             >
-                Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV
+                {impressumInputs.header4}
             </Typography>
             <Typography component="address" sx={{ fontStyle: 'normal' }}>
-                Max Mustermann<br />
-                Musterstraße 1<br />
-                12345 Musterstadt
+                {impressumInputs.owner}<br />
+                {impressumInputs.street}<br />
+                {impressumInputs.town}
             </Typography>
         </Box>
      );

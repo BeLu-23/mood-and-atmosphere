@@ -1,10 +1,5 @@
 import { useEffect, useState } from 'react';
 import './App.css'
-// import NavBar from './components/NavBar'
-// import HomeSection from './components/HomeSection';
-// import AboutUsSection from './components/AboutUsSection';
-// import FotoSection from './components/FotoSection';
-// import Footer from './components/Footer';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import HomeScreen from './components/HomeScreen';
 import Impressum from './components/Impressum';
@@ -33,11 +28,6 @@ function App() {
         <Route path='/impressum' element={<Impressum />} />
         <Route path='/datenschutz' element={<Datenschutz />} />
       </Routes>
-      {/* <NavBar windowWidth={windowWidth} />
-      <HomeSection />
-      <AboutUsSection windowWidth={windowWidth} />
-      <FotoSection windowWidth={windowWidth}/>
-      <Footer /> */}
     </BrowserRouter>
   )
 }

@@ -1,23 +1,32 @@
 import ImageGallery from "./ImageGallery";
-import { gallery1, gallery2 } from "../util/inputs";
+import { 
+    gallery10, gallery11, 
+    gallery12, 
+    gallery3, gallery4, 
+    gallery5, gallery6, gallery7, gallery8, gallery9 
+} from "../util/inputs";
+import { smallWindow, WindowWidthProps } from "../util/params";
 
-interface FotoSectionProps {
-    windowWidth: number;
-}
+const FotoSection = ({windowWidth}: WindowWidthProps) => {
 
-const FotoSection = ({windowWidth}: FotoSectionProps) => {
-
-    const isSmallWindow = windowWidth <= 1500;
-    windowWidth
+    const isSmallWindow = windowWidth <= smallWindow;
 
     return ( 
-        <div id="FOTOS" style={{width: '100vw', borderTop: '2px solid black',
-            // , paddingBottom: '2px'
+        <div 
+            style={{width: '100vw', 
             paddingLeft: isSmallWindow ? '0%' : '20%',
             paddingRight: isSmallWindow ? '0%' : '20%',
         }}>
-            <ImageGallery inputs={gallery1} />
-            <ImageGallery inputs={gallery2} />
+            <ImageGallery inputs={gallery3} />
+            <ImageGallery inputs={gallery4} />
+            <ImageGallery inputs={gallery5} />
+            <ImageGallery inputs={gallery6} />
+            <ImageGallery inputs={gallery7} />
+            <ImageGallery inputs={gallery8} />
+            <ImageGallery inputs={gallery9} />
+            <ImageGallery inputs={gallery10} />
+            <ImageGallery inputs={gallery11} />
+            <ImageGallery inputs={gallery12} />
         </div>
      );
 }

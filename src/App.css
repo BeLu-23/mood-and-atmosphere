@@ -12,14 +12,12 @@
   box-sizing: border-box;
   text-align: center;
   /* color: black; */
-  color:#676634
+  color:#676634;
 }
 
 html, body, #root {
   height: 100vh;
   overflow-x: hidden;
-  /* font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'; */
-  /* background-color: var(--colorAqua); */
 }
 
 .large-menu-item {
