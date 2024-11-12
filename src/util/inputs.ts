@@ -263,7 +263,7 @@ export interface DatenschutzProps {
 }
 
 export const datenschutzInputs: DatenschutzProps = {
-    title: "Dantenschutzerklärung",
+    title: "Datenschutzerklärung",
     header1: "1. Allgemeine Hinweise",
     header2: "2. Verantwortliche Stelle",
     header3: "3. Erhebung und Speicherung personenbezogener Daten",
