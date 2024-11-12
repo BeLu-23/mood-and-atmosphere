@@ -1,18 +1,12 @@
 import { IconButton } from "@mui/material";
-import { FaInstagram } from "react-icons/fa";
+import { FaPaperPlane } from "react-icons/fa";
 
-// interface InstaButtonProps {
-//     buttonColor: string;
-// }
-
-const InstaButton = (
-    // {buttonColor}: InstaButtonProps
-    ) => {
+const EmailButton = () => {
     return ( 
         <IconButton
             size="large"
-            aria-label="Instagram Icon"
-            href="https://www.instagram.com/mood_and_atmosphere?igsh=MWc2cTZydnF5dTNjZQ=="
+            aria-label="Email Icon"
+            href="mailto:info@moodandatmosphere.de"
             target="_blank"
             sx={{backgroundColor: 'white', 
                 "&:active": {
@@ -23,9 +17,9 @@ const InstaButton = (
                 },
             }}
         >
-            <FaInstagram />
+            <FaPaperPlane />
         </IconButton>
      );
 }
  
-export default InstaButton;
+export default EmailButton;

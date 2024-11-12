@@ -1,5 +1,22 @@
 TODOs
 
+Publish to all inkl
+1. vite.config.ts change base: '/mood-and-atmosphere/' to base: '/'
+2. package.json change hompage to https://moodandatmosphere.de from "https://belu-23.github.io/mood-and-atmosphere/"
+3. change App.tsx basename='/mood-and-atmosphere' to basename='/'
+4. sourcen bauen
+5. auf all-inkl hochladen. WIE??? WO???
+6. Zertifikat erstellen htpps
+7. evtl diese versteckte Datei auf dem server von quabla kopieren
+
+- check was passiert wenn der email button degrückt wird mit dem hintergrund
+- barrierefreiheit einbauen
+- bring es auf github pages (npm run deploy)
+- deploye seite zu all-inkl und checke ob dort cookies genommen werden. Falls ja sollte ein banner gebaut werden
+- breche github pages ab dass es dort nicht mehr angezeigt wird. make repo private???
+- !!!!evtl refactoring der NavBar komponente indem Menus und oder menuItems raus genommen werden!!!! Da hab ich bock drauf
+
+
 DONE - Über Uns wird zu über mich
 DONE - scrollen wenn man aus der detailansicht kommt das man beim aktuell selektierten bild landet
 DONE - gap zwischn bildern in großansicht
@@ -11,7 +28,7 @@ DONE - im smallwindow: anordnung der menuItems nochmal anpassen
 DONE - setze X-Button aus detailsansicht ein wenig nach unten wegen smartphones ansicht
 DONE - man sollte am pc mit pfeiltasten der tastatur die detailansicht navigieren können
 DONE - bora soll sagen ob die verlinkung zu insta korrekt ist
-- bora sagen sie soll alle bilder durhcgehen und checken ob sie manche raus nehmen will
+DONE - bora sagen sie soll alle bilder durhcgehen und checken ob sie manche raus nehmen will
 - KONTAKT section --- WELCHES BILD?? ---- mit Bora abstimmen wegen Kontakt section, was drin stehen soll: Überschrift, text, dann bild
 - ÜBER MICH section --- WELCHES BILD?? ---- Mit bora abstimmen wegen überuns Section, was drin sthene soll: Überschrift, text, dann bild
 DONE - Bora fragen wie die Reihenfolge der sections sein soll (evtl. überUns, Gallerie, Kontakt)
@@ -23,10 +40,6 @@ DONE - nimm Baguettes raus
 DONE - evtl in gallery ganz oben nochmal einal fett Gallery schreiben mit separator oben und unten als klare abgrenzung
 DONE - favicon icon, sollte 16x16 oder 32x32 pixel sein (erstelle selber)
 DONE - !!!!!!!! Baue Kontakt section
-- barrierefreiheit einbauen
-- bring es auf github pages (npm run deploy)
-- deploye seite zu all-inkl und checke ob dort cookies genommen werden. Falls ja sollte ein banner gebaut werden
-- !!!!evtl refactoring der NavBar komponente indem Menus und oder menuItems raus genommen werden!!!! Da hab ich bock drauf
 
 DONE - navigation einabuen
 DONE   dann impressums seite

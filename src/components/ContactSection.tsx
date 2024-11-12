@@ -1,7 +1,14 @@
-import { Box, Skeleton, Typography } from "@mui/material";
-import { contactInput, contactPicURL, sectionTitles } from "../util/inputs";
+import { Box, 
+    // Skeleton, 
+    Typography 
+} from "@mui/material";
+import { contactInput, 
+    // contactPicURL, 
+    sectionTitles } from "../util/inputs";
 import { smallWindow } from "../util/params";
-import { useState } from "react";
+import InstaButton from "./InstaButton";
+import EmailButton from "./EmailButton";
+// import { useState } from "react";
 
 interface ContactSectionProps {
     windowWidth: number;
@@ -9,35 +16,44 @@ interface ContactSectionProps {
 
 const ContactSection = ({windowWidth}: ContactSectionProps) => {
 
-    const [isImageLoaded, setIsImageLoaded] = useState(false);
+    // const [isImageLoaded, setIsImageLoaded] = useState(false);
     const isSmallWindow = windowWidth <= smallWindow;
 
     return ( 
-        <Box id={sectionTitles.contact} style={{width: '100vw', borderTop: '2px solid #676634',
-            paddingBottom: '32px',
+        <Box id={sectionTitles.contact} style={{width: '100vw'
+            , borderTop: '2px solid #676634'
+            ,paddingBottom: '32px',
             paddingLeft: isSmallWindow ? '0px' : '20%',
             paddingRight: isSmallWindow ? '0px' : '20%',
+            backgroundColor: '#676634',
+            // backgroundColor: 'red',
+            // color: '#ffffff',
         }}>
             <Box sx={{
                 paddingLeft: '8px',
                 paddingRight: '8px',
             }}>
-                <Typography sx={{paddingTop: '80px', paddingBottom: '16px'}} variant="h4">
+                <Typography sx={{paddingTop: '80px', paddingBottom: '16px', color: "white"}} variant="h4">
                     {contactInput.title}
                 </Typography>
-                <Typography>
+                <Typography sx={{color: "white"}}>
                     {contactInput.first}
                 </Typography>
                 <Typography
                     dangerouslySetInnerHTML={{ __html: contactInput.second }}
                 />
-                <Typography>
+            
+                <Box sx={{display: 'flex', flexDirection: 'row', justifyContent: 'center', gap: '15px'}}>
+                    <EmailButton />
+                    <InstaButton />
+                </Box>
+                {/* <Typography  sx={{color: "white"}}>
                     {contactInput.third}
-                </Typography>
+                </Typography> */}
                 <br />
             </Box>
 
-            <Box
+            {/* <Box
                 sx={{
                     position: 'relative',
                     width: "100%",
@@ -73,7 +89,7 @@ const ContactSection = ({windowWidth}: ContactSectionProps) => {
                         objectFit: "cover",
                     }}
                 />
-            </Box>
+            </Box> */}
         </Box> 
     );
 }

@@ -18,12 +18,17 @@ const AboutUsSection = ({windowWidth}: WindowWidthProps) => {
             <Box sx={{
                 paddingLeft: '8px',
                 paddingRight: '8px',
+                textAlign: 'justify'
             }}>
                 <Typography sx={{paddingTop: '80px', paddingBottom: '16px'}} variant="h4">
                     {aboutUsInput.title}
                 </Typography>
-                <Typography>
-                    {aboutUsInput.description}    
+                <Typography sx={{ textAlign: 'justify'}}>
+                    {aboutUsInput.description1}    
+                </Typography>
+                <br />
+                <Typography sx={{textAlign: 'justify'}}>
+                    {aboutUsInput.description2}    
                 </Typography>
                 <br />
             </Box>

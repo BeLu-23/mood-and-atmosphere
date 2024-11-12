@@ -13,7 +13,6 @@ const ImageGallery = ({inputs} : ImageGalleryProps) => {
 
 const [selectedImageIndex, setSelectedImageIndex] = useState<number | null>(null);
 const images = inputs.images;
-const isRental = inputs.title == 'Rental Games';
 
 const handleImageClick = (index: number) => {
     setSelectedImageIndex(index);
@@ -57,27 +56,16 @@ return (
         <Typography sx={{paddingTop: '80px', paddingBottom: '16px', pl: '8px', pr: '8px'}} variant="h4">
             {inputs.title.toUpperCase()}
         </Typography >
-        <Typography sx={{paddingBottom: '16px', paddingLeft: '10px', paddingRight: '10px'}}>
-            {inputs.description}    
-        </Typography>
-        {isRental && (
-            <>
-                <Typography>Jenga</Typography>
-                <Typography>Maße Bodenplatte ca.: 40cm x 40cm</Typography>
-                <Typography>Maße Klötze ca.: 24cm x 6cm x 8cm</Typography>
-                <br />
-                <Typography>4 Gewinnt</Typography>
-                <Typography>Maße ca.: 190cm x 160cm x 50cm</Typography>
-                <br />
-                <Typography>Kugellabyrinth</Typography>
-                <Typography>Maße ca.: 100cm x 198cm x 80cm</Typography>
-                <br />
-            </>
-        )}
+        <Typography 
+            sx={{paddingBottom: '16px', paddingLeft: '10px', paddingRight: '10px', textAlign: 'justify'}} 
+            dangerouslySetInnerHTML={{ __html: inputs.description }} 
+        />
+
         <Grid 
             container
+            columnSpacing={{ xs: 0, sm: 1 }}
             rowSpacing={1}
-            columnSpacing={1}
+            sx={{ margin: 0, padding: 0 }}
         >
             {images.map((image, index) => (
                 <Grid 
